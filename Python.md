@@ -316,10 +316,10 @@ for i in range(2):
 - **Defined using keyword "def"**
 ```
 Example:
-def factorial(n):
+def factorial(n):                                        function declaration
     return 1 if n == 0 else n * factorial(n-1)
 
-print(factorial(5))   # Output: 120
+print(factorial(5))   # Output: 120                      function calling
 ```
 here 'n' is argument,
 and factorinal(5) is calling of function in which '5' is parameter which is sent to function
@@ -379,4 +379,121 @@ outer()
   Reserved names in Python (e.g., len, print, sum).
 ```
 print(len("Python"))   # Built-in function
+```
+**Object Oriented Programming in Python**
+- **It organizes code into classes (blueprints) and objects (real instances).**
+- **Helps make programs modular, reusable, and easier to maintain.**
+Core concepts:
+```
+Class
+class Student:                                      class declaration
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+(__init__) is a constructor which is a special method that runs automatically when creating objects.
+```
+Objects :
+It is an instance of class which is created to call the class or functions of class
+s1 = Student("Utkarsh", 20)
+print(s1.name)   # Utkarsh
+```
+**OOP Principles**
+1. Encapsulation
+   It is wrapping of data (variables/attributes) and methods (functions) together into a single unit (class) and restricting direct access to     the data from outside the class.
+```
+Example:
+class BankAccount:                 # creating class
+    def __init__(self, balance):   # default and auto called constructor
+        self.__balance = balance   # private attribute
+
+    def deposit(self, amount):     #function inside a class
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+# Output
+account = BankAccount(1000)        # creating object
+account.deposit(500)               # calling function of a class variables cannot be called like(account.balance)
+print(account.get_balance())   # ✅ 1500
+# print(account.__balance)     # ❌ Error (cannot access directly)
+```
+2. Inheritance
+   Inheritance allows one class (child/derived class) to acquire the properties and behaviors (variables and methods) of another class            (parent/base class)
+```
+Example:
+# Parent Class
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f"Name: {self.name}, Age: {self.age}")
+
+# Child Class (inherits from Person)
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        # Call parent constructor
+        super().__init__(name, age)
+        self.student_id = student_id
+
+    def display(self):
+        # Overriding parent method
+        print(f"Student Name: {self.name}, Age: {self.age}, ID: {self.student_id}")
+
+# Another Child Class
+class Teacher(Person):
+    def __init__(self, name, age, subject):
+        super().__init__(name, age)
+        self.subject = subject
+
+    def display(self):
+        print(f"Teacher Name: {self.name}, Age: {self.age}, Subject: {self.subject}")
+
+
+# Usage
+s1 = Student("Utkarsh", 21, "CS101")
+t1 = Teacher("Dr. Sharma", 45, "Data Science")
+
+s1.display()
+t1.display()
+```
+3. Polymorphism
+   Similar named method can be created in different different classes
+```
+Example:
+class Dog:
+    def sound(self):
+        print("Woof!")
+class Cat:
+    def sound(self):
+        print("Meow!")
+for animal in [Dog(), Cat()]:
+    animal.sound()
+# Output:
+# Woof!
+# Meow!
+```
+4. Abstraction
+   Abstraction means hiding the internal implementation details and showing only the essential features of an object.
+```
+Example:
+from abc import ABC, abstractmethod                     importing abstract method
+
+class Shape(ABC):                                       # Abstract class, Only declaration of methods 
+    @abstractmethod                            
+    def area(self):
+        pass
+
+class Square(Shape):                                   
+    def __init__(self, side):
+        self.side = side
+    def area(self):                                       Overriding method that is declared in abstract class
+        return self.side * self.side
+
+# Example
+s = Square(4)
+print(s.area())  # 16
 ```
