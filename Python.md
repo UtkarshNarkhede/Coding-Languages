@@ -123,6 +123,7 @@ s.partition("is")   # ('python ', 'is', ' fun')     partition the string from gi
 "Name: {0}, Age: {1}".format(name, age)     # positional
 "Name: {n}, Age: {a}".format(n=name, a=age) # keyword
 string[start:end:step]                for slicing of string
+" ".join(words)     # Python is fun   the list of words get joined with a " " for each comma.
 ```
 **List**
 - Ordered, mutable collection 
