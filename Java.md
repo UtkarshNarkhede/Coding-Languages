@@ -22,7 +22,14 @@ int i = Integer.parseInt(s);     // String to int
 **Logical & Comparison Operators:**<br>
 Logical: && (AND), || (OR), ! (NOT).
 Comparison: ==, !=, >, <, >=, <=.
-
+**Basic code**
+for "Hello, World!"
+```public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
 **String Methods**
 Strings in Java are Immutable Objects.
 ```
