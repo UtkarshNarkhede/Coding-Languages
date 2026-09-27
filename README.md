@@ -39,6 +39,6 @@ dataset/
    python app.py
    ```
 4. Outputs:
-   upon complete execution of code their will be new directory in folder named as "outputs" thic will contain:
+   upon complete execution of code their will be new directory in folder named as "outputs", this will contain:
    1. candidate_pairs.tsv # which is generated using inverted index prefix blocking.
    2. matching_pairs.tsv # in this there are high precision entities that are predicted using LightBGM
